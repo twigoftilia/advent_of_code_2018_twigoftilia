@@ -3,9 +3,22 @@
 [Advent of Code 2018](https://adventofcode.com/2018)
 
 Trying to learn rust, so why not take on some of the Advent of code 2018 challenges :)
-Busy busy, so the ambition is moderate. Mostly (only) weekends maybe? You should probably look at other peoples code for best practice idiomatic rust.
+Busy busy, so the ambition is moderate. Mostly (only) weekends maybe? 
+Warning - you should probably look at other peoples code for best practice idiomatic rust.
 
-Well, at least day one done!
+## Goals
+
+Personal goal and rules (so very different from my "real" coding):
+ 
+  * used rust
+  * finish say 10 puzzles
+  * no peaking at AoC threads
+  * challenge myself to leave code that I know could be done better and to actually code over researching algorithms
+  * bad and ugly over copy paste
+  * implement simple algorithms over use crates or snippets
+  * ignore rules at will
+
+## How to run
 
 Until further notice, 
 
@@ -13,12 +26,14 @@ Until further notice,
 
 will run all puzzles done. 
 
+## Status
+
 Days
 
 * 1 first & second done
 * 2 first & second done
-* 3 
-* 4
+* 3 first & second done
+* 4 first & second done
 * 5
 * 6
 * 7
