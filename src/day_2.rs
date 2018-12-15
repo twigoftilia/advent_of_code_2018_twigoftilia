@@ -1,5 +1,5 @@
+use crate::util;
 use std::collections::HashMap;
-use util;
 
 // Ok, pretty hackish and direct. Horrible, but its late...
 // Lots of known limitation, i.e. only works for ascii (one char / byte) input
@@ -89,7 +89,7 @@ fn solve_second_file(input: &str) -> String {
 
 // Some shortcuts as we know we're searcing two specific top matching boxes
 // XXXXfn solve_second(str_vector: Vec<String>) -> String {
-    fn solve_second(str_vector: &[String]) -> String {
+fn solve_second(str_vector: &[String]) -> String {
     let mut best_match = 0;
     let box_ids = str_vector.len();
     let box_id_last_idx = box_ids - 1;
@@ -116,9 +116,7 @@ fn solve_second_file(input: &str) -> String {
     }
 
     match box_id_1 {
-        None => {
-            "Fail".to_string()
-        }
+        None => "Fail".to_string(),
         Some(b1) => {
             let b2 = box_id_2.unwrap();
             chars_at_correct_place(&b1, &b2)

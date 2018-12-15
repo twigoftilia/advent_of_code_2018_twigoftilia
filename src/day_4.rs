@@ -1,13 +1,14 @@
-use std::collections::HashMap;
+use crate::util;
 use regex::Regex;
-use util;
+use std::collections::HashMap;
 
 pub fn solve() {
     let input_file = "input-day-4.txt";
 
     println!("Day 4 answers");
     print!(" first puzzle: ");
-    let (answer_first, answer_first2, answer_first3, answer_second, answer_second2, answer_second3) = solve_file(input_file);
+    let (answer_first, answer_first2, answer_first3, answer_second, answer_second2, answer_second3) =
+        solve_file(input_file);
     println!("{}*{}={}", answer_first, answer_first2, answer_first3);
     print!(" second puzzle: ");
     println!("{}*{}={}", answer_second, answer_second2, answer_second3);
@@ -26,7 +27,8 @@ fn solve_first(mut str_vector: Vec<String>) -> (String, u32, u32, String, u32, u
     str_vector.sort();
     let re = Regex::new(
         r"^[\[](.{10})\s+.{3}(.{2})[\]]\s+(\w+)\s+#?(\S+)(.*)", // #\s+(\w)\s+(\d+)\s+
-    ).unwrap();
+    )
+    .unwrap();
 
     let mut guard_surveillance: HashMap<String, GuardsNightNaps> = HashMap::new();
     let mut guard_state = GuardState::None;
@@ -35,7 +37,7 @@ fn solve_first(mut str_vector: Vec<String>) -> (String, u32, u32, String, u32, u
     let mut current_sleep_minute: Option<u32> = None;
 
     for line in str_vector {
-//        println!("XXX line: {}", line);
+        //        println!("XXX line: {}", line);
         let caps = re.captures(&line).unwrap();
 
         let date_str = &caps[1];
@@ -80,10 +82,10 @@ fn solve_first(mut str_vector: Vec<String>) -> (String, u32, u32, String, u32, u
 
                     //let mut current_guard_watch_vec: &Vec<GuardWatch>;
                     let b = &current_guard;
-                    let mut guard_nites = guard_surveillance
+                    let guard_nites = guard_surveillance
                         .entry(b.to_string())
                         .or_insert_with(HashMap::new);
-                    let mut guard_nite = guard_nites
+                    let guard_nite = guard_nites
                         .entry(date_str.to_string())
                         .or_insert_with(Vec::new);
 
@@ -121,20 +123,23 @@ fn solve_first(mut str_vector: Vec<String>) -> (String, u32, u32, String, u32, u
 
     let mr_sleepys_nights = &guard_surveillance[&mr_sleepy];
     let (_top_value, mr_sleepys_top_minute) = max_minute_for_nights(mr_sleepys_nights);
-    if mr_sleepys_top_minute == 0  {
+    if mr_sleepys_top_minute == 0 {
         panic!("Can't handle non sleeping guards.");
     }
-    let mr_sleepy_as_u32 = mr_sleepy.to_string().parse::<u32>().expect("Not an integer");
+    let mr_sleepy_as_u32 = mr_sleepy
+        .to_string()
+        .parse::<u32>()
+        .expect("Not an integer");
 
     // second part solution
     //
     let mut mr_predictable = "None".to_string();
     let mut mr_predictables_top_minute: u32 = 0;
-    let mut mr_predictables_top_value: u32 = 0;    
+    let mut mr_predictables_top_value: u32 = 0;
     for (guard, nights) in &guard_surveillance {
         let guard_nights = nights;
         let (top_value, top_minute) = max_minute_for_nights(guard_nights);
- //       println!("XXX Guard : {} -> top_value: {} : top_minute  {} ", guard, _top_value, top_minute);
+        //       println!("XXX Guard : {} -> top_value: {} : top_minute  {} ", guard, _top_value, top_minute);
         if top_value > mr_predictables_top_value {
             mr_predictables_top_value = top_value;
             mr_predictables_top_minute = top_minute;
@@ -142,20 +147,29 @@ fn solve_first(mut str_vector: Vec<String>) -> (String, u32, u32, String, u32, u
         }
     }
 
-    let mr_predictable_as_u32 = mr_predictable.to_string().parse::<u32>().expect("Not an integer");
+    let mr_predictable_as_u32 = mr_predictable
+        .to_string()
+        .parse::<u32>()
+        .expect("Not an integer");
 
-    (mr_sleepy.to_string(), mr_sleepys_top_minute, mr_sleepy_as_u32*mr_sleepys_top_minute, mr_predictable.to_string(), mr_predictables_top_minute, mr_predictable_as_u32*mr_predictables_top_minute)
+    (
+        mr_sleepy.to_string(),
+        mr_sleepys_top_minute,
+        mr_sleepy_as_u32 * mr_sleepys_top_minute,
+        mr_predictable.to_string(),
+        mr_predictables_top_minute,
+        mr_predictable_as_u32 * mr_predictables_top_minute,
+    )
 }
 
 // returns (top_value, top_minute)
 // top_minute only valid if top_value > 0
 
 fn max_minute_for_nights(nights: &GuardsNightNaps) -> (u32, u32) {
-
     let mut minutes_slept_at_minute: HashMap<u32, u32> = HashMap::new();
-    let mut top_minute : u32 = 0;
-    let mut top_value : u32 = 0;
-   for naps in nights.values() {
+    let mut top_minute: u32 = 0;
+    let mut top_value: u32 = 0;
+    for naps in nights.values() {
         // println!("XXXX    key {}", date);
         for nap in naps {
             // println!("XXXX    nap {} {}", nap.sleep_minute, nap.sleep_minute );
@@ -179,8 +193,8 @@ fn max_minute_for_nights(nights: &GuardsNightNaps) -> (u32, u32) {
             }
         }
     }
-    (top_value,top_minute)
-    }
+    (top_value, top_minute)
+}
 
 type GuardsNightNaps = HashMap<String, Vec<Nap>>;
 
@@ -203,9 +217,10 @@ mod tests {
     #[test]
     fn test_day_4_test_first() {
         // provided examples
-        let (answer, answer2, answer3, answer_second, answer_second2, answer_second3) = solve_file("test-day-4.txt");
+        let (answer, answer2, answer3, answer_second, answer_second2, answer_second3) =
+            solve_file("test-day-4.txt");
         assert_eq!(answer, "10");
-        assert_eq!(answer2, 24 );
+        assert_eq!(answer2, 24);
         assert_eq!(answer3, 240);
         assert_eq!(answer_second, "99");
         assert_eq!(answer_second2, 45);

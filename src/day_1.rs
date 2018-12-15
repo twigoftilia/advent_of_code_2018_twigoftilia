@@ -1,5 +1,5 @@
+use crate::util;
 use std::collections::BTreeSet;
-use util;
 
 pub fn solve() {
     let day1_input_file = "input-day-1.txt";
@@ -8,7 +8,7 @@ pub fn solve() {
     print!(" first puzzle: ");
     let answer = solve_first_file(day1_input_file);
     println!("{}", answer);
-    
+
     print!(" second puzzle: ");
     let answer = solve_second_file(day1_input_file);
     println!("{}", answer);

@@ -3,7 +3,7 @@
 [Advent of Code 2018](https://adventofcode.com/2018)
 
 Trying to learn rust, so why not take on some of the Advent of code 2018 challenges :)
-Busy busy, so the ambition is moderate. Mostly (only) weekends maybe? 
+Busy busy, so the ambition is moderate. Mostly weekends... 
 Warning - you should probably look at other peoples code for best practice idiomatic rust.
 
 ## Goals
@@ -34,7 +34,7 @@ Days
 * 2 first & second done
 * 3 first & second done
 * 4 first & second done
-* 5
+* 5 first & second done
 * 6
 * 7
 * 8

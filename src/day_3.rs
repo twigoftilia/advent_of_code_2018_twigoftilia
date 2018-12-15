@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 use std::collections::HashSet;
 
-use util;
+use crate::util;
 
 pub fn solve() {
     let input_file = "input-day-3.txt";
@@ -77,8 +77,8 @@ fn solve_first(str_vector: Vec<String>) -> i32 {
 
         for x in rect.x..=rect.x2 {
             overclaimed_square_inches.entry(x).or_insert_with(YSet::new);
-            let mut y_map_res: Option<&mut YSet> = overclaimed_square_inches.get_mut(&x);
-            let mut y_map = y_map_res.unwrap();
+            let y_map_res: Option<&mut YSet> = overclaimed_square_inches.get_mut(&x);
+            let y_map = y_map_res.unwrap();
 
             //           println!("XXXXXXXXXX: check y    {} rect.y..rect.y2 {}", rect.y, rect.y2 );
             for y in rect.y..=rect.y2 {
