@@ -5,7 +5,7 @@ use std::collections::BTreeSet;
 use crate::util;
 
 // Not to happy with this one, tried a couple times, still slow (~30 sec).
-// Plenty to optimaze, but lets go on. 
+// Plenty to optimaze, but lets go on.
 // Also now rust 2018 edition.
 //
 pub fn solve() {
@@ -46,7 +46,7 @@ fn solve_first(str_vector: &[String]) -> usize {
     reduce_polymer(input, &mut reduced_indexes);
     let reduced_polymer = reduced_indexes.get_reduced_string(input);
     //  println!("XXXX reduced_polymer:_ {} ", reduced_polymer);
-    
+
     reduced_polymer.len()
 }
 
@@ -76,11 +76,11 @@ fn solve_second(str_vector: &[String]) -> usize {
         //let m_c = char_reduced_size.get_mut(&c.to_ascii_uppercase());
         //m_c.unwrap() = char_pol_len;
 
- //       println!("XXX Char -> reduction {}->{}", c, reduced_polymer_len);
+        //       println!("XXX Char -> reduction {}->{}", c, reduced_polymer_len);
     }
     let min_opt = char_reduced_size.values().min();
     let min = min_opt.unwrap();
-    
+
     min.to_owned()
 }
 
