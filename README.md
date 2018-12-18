@@ -22,7 +22,7 @@ Personal goal and rules (so very different from my "real" coding):
 
 Until further notice, 
 
-    cargo run
+    cargo run --release
 
 will run all puzzles done. 
 
@@ -45,7 +45,7 @@ Days
 * 13
 * 14
 * 15
-* 16
+* 16 first & second done
 * 17
 * 18
 * 19

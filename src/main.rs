@@ -1,6 +1,7 @@
 extern crate regex;
 
 mod day_1;
+mod day_16;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -16,4 +17,6 @@ fn main() {
     day_4::solve();
     day_5::solve();
     day_6::solve();
+
+    day_16::solve();
 }

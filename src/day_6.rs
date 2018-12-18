@@ -31,14 +31,14 @@ fn solve_second(str_vector: &[String], limit_dist: usize) -> usize {
     let mut area_count = 0;
     for x in world.x..=world.x2 {
         for y in world.y..=world.y2 {
-            let mut sum_of_mh_dist = 0; 
+            let mut sum_of_mh_dist = 0;
             for (_point_idx, point) in points.iter().enumerate() {
                 sum_of_mh_dist += manhattan_distance(point, x, y);
             }
             if sum_of_mh_dist < limit_dist {
                 area_count += 1;
             }
- //           println!("XXX at: {},{} sum of dist: {}", x,y, sum_of_mh_dist);
+            //           println!("XXX at: {},{} sum of dist: {}", x,y, sum_of_mh_dist);
         }
     }
 
@@ -193,7 +193,7 @@ struct Point {
 #[cfg(test)]
 mod tests {
     use super::*;
-    
+
     #[test]
     fn test_day_6_first() {
         // provided examples
