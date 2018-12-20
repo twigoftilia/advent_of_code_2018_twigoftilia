@@ -10,7 +10,7 @@ Warning - you should probably look at other peoples code for best practice idiom
 
 Personal goal and rules (so very different from my "real" coding):
  
-  * used rust
+  * use rust
   * finish say 10 puzzles
   * no peaking at AoC threads
   * challenge myself to leave code that I know could be done better and to actually code over researching algorithms
@@ -48,10 +48,16 @@ Days
 * 16 first & second done
 * 17
 * 18
-* 19
+* 19 first
 * 20
 * 21
 * 22
 * 23
 * 24
 * 25
+
+
+### Notes to self
+
+#### Note 19 second
+Takes waaay to much time. Not to optimized, but not that bad. Heard rumors its a pretty tough one and you have to optimize the program. Sounds great fun but I leave it for now.
