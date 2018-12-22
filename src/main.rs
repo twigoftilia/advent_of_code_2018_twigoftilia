@@ -8,6 +8,7 @@ mod day_3;
 mod day_4;
 mod day_5;
 mod day_6;
+mod day_7;
 mod util;
 
 fn main() {
@@ -18,8 +19,9 @@ fn main() {
     day_4::solve();
     day_5::solve();
     day_6::solve();
+    day_7::solve();
 
     day_16::solve();
-    
+
     day_19::solve();
 }
