@@ -36,7 +36,7 @@ Days
 * 4 first & second done
 * 5 first & second done
 * 6 first & second done
-* 7
+* 7 first & second done
 * 8
 * 9
 * 10
