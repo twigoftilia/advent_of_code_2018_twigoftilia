@@ -50,7 +50,6 @@ fn solve_both(str_vector: &[String]) -> (usize, usize) {
 
     // Resolve Returns possible steps to resolve after thid
     fn recursive_func_second(numbers: &[usize], node_start: usize) -> RecursiveResultSecond {
-        println!("XXX recursive_func enter: node_start={}", node_start);
         let mut res: RecursiveResultSecond = Default::default();
         let no_childs = numbers[node_start];
         let no_meta = numbers[node_start + 1];
