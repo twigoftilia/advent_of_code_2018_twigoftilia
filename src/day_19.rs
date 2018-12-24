@@ -36,7 +36,7 @@ fn run_program(program: &[Instruction], ip_register: usize, registers: &mut Vec<
 
     loop {
         if ip >= program.len() {
-            println!("XXX: ip: {} -> registers: {:?}", ip, registers);
+ //           println!("XXX: ip: {} -> registers: {:?}", ip, registers);
             break;
         }
 
